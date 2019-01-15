@@ -1,0 +1,13 @@
+node ('master'){
+    stage ('Build on master'){
+        echo 'Running on master'
+        sh 'hostname; touch file.master'
+    }
+}
+
+node ('lab_slave'){
+    stage ('Build on slave'){
+        echo 'Running on agent1'
+        bat 'start cmd.exe /c C:\\Jenkins\\aha.bat'
+    }
+}
